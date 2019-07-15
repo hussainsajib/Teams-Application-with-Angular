@@ -10,6 +10,8 @@ import { EmployeesComponent } from './employees/employees.component';
 import { PositionsComponent } from './positions/positions.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PositionService} from './data/position.service';
+import { EmployeeService } from './data/employee.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PositionService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
