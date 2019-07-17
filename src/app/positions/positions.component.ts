@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Position } from '../data/position';
+import { PositionService } from '../data/position.service'
 
 @Component({
   selector: 'app-positions',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./positions.component.css']
 })
 export class PositionsComponent implements OnInit {
-
-  constructor() { }
+  positions: Position[];
+  constructor(private m: PositionService) { }
 
   ngOnInit() {
+    this.getPositions();
+  }
+
+  getPositions(){
+    this.m.getPosition().subscribe(positions=>this.positions = positions);
   }
 
 }

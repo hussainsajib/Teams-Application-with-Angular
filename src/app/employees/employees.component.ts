@@ -13,10 +13,16 @@ export class EmployeesComponent implements OnInit {
   getEmployeesSub: any;
   loadingError = false;
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private m: EmployeeService) { }
 
   ngOnInit() {
-    this.employees = this.employeeService<Employee[]>.getEmployee();
+    this.getEmployees();
+  }
+  getEmployees(){
+    this.getEmployeesSub = this.m.getEmployees().subscribe(employees=>this.employees = employees);
+  }
+  ngOnDestroy(){
+    
   }
 
 }

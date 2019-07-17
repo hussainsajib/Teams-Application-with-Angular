@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
+  <div class="row" *ngFor="let employee of employees">
     <div class="col-md-12">
-      <p>Employees works</p>
+      <p>{{ employee }}</p>
     </div>
   </div>
 </div>

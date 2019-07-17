@@ -10,7 +10,7 @@ export class EmployeeService {
   employeeUrl = 'https://glacial-beyond-73904.herokuapp.com/positions'
   constructor(private http: HttpClient) { }
 
-  getEmployee(): Observable<Employee []>{
+  getEmployees(): Observable<Employee []>{
     return this.http.get<Employee[]>(this.employeeUrl);
   }
 }
