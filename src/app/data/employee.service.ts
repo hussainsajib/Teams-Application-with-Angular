@@ -7,7 +7,7 @@ import { Employee } from './employee';
   providedIn: 'root'
 })
 export class EmployeeService {
-  employeeUrl = 'https://glacial-beyond-73904.herokuapp.com/positions'
+  employeeUrl = 'https://glacial-beyond-73904.herokuapp.com/employees'
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<Employee []>{

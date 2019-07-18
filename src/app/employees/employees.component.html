@@ -1,7 +1,8 @@
 <div class="container">
-  <div class="row" *ngFor="let employee of employees">
+  <div class="row">
     <div class="col-md-12">
-      <p>{{ employee }}</p>
+      <p>Employees works</p>
+      <p>{{ employees | json }}</p>
     </div>
   </div>
 </div>
