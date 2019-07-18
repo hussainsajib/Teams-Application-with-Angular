@@ -6,8 +6,26 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <p>Employees works</p>
-      <p>{{ employees | json }}</p>
+      <div class="table-responsive">
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>Address</th>
+              <th>Phone Number</th>
+              <th>Hire Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employees">
+              <td>{{ employee.FirstName }} {{ employee.LastName }}</td>
+              <td>{{ employee.AddressStreet }}.{{ employee.AddressState }}, {{ employee.AddressCity }}. {{ employee.AddressZip}}</td>
+              <td>{{ employee.PhoneNum }} ext: {{ employee.Extension }}</td>
+              <td>{{ employee.HireDate | date:'longDate' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
