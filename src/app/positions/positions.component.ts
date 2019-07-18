@@ -9,6 +9,9 @@ import { PositionService } from '../data/position.service'
 })
 export class PositionsComponent implements OnInit {
   positions: Position[];
+  getPositionSub: any;
+  loadingError: boolean = false;
+  
   constructor(private m: PositionService) { }
 
   ngOnInit() {
@@ -16,7 +19,13 @@ export class PositionsComponent implements OnInit {
   }
 
   getPositions(){
-    this.m.getPosition().subscribe(positions=>this.positions = positions);
+    this.getPositionSub = this.m.getPosition().subscribe(positions=>this.positions = positions, error=>this.loadingError = true);
+  }
+
+  ngOnDestroy(){
+    if(this.getPositionSub != undefined){
+      this.getPositionSub.unsubscribe();
+    }
   }
 
 }

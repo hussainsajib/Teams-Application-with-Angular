@@ -19,10 +19,10 @@ export class EmployeesComponent implements OnInit {
     this.getEmployees();
   }
   getEmployees(){
-    this.getEmployeesSub = this.m.getEmployees().subscribe(employees=>this.employees = employees);
+    this.getEmployeesSub = this.m.getEmployees().subscribe(employees=>this.employees = employees, error=>this.loadingError = true);
   }
   ngOnDestroy(){
-    
+    this.getEmployeesSub.unsubscribe();
   }
 
 }
