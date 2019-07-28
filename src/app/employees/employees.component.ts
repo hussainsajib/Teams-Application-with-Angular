@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Employee } from '../data/employee';
 import { EmployeeService } from '../data/employee.service'
@@ -13,7 +14,7 @@ export class EmployeesComponent implements OnInit {
   getEmployeesSub: any;
   loadingError = false;
 
-  constructor(private m: EmployeeService) { }
+  constructor(private m: EmployeeService, private router: Router) { }
 
   ngOnInit() {
     this.getEmployees();
@@ -23,6 +24,10 @@ export class EmployeesComponent implements OnInit {
   }
   ngOnDestroy(){
     this.getEmployeesSub.unsubscribe();
+  }
+
+  routeEmployee(id: string){
+    this.router.navigate(['/', `employee/${id}`]);
   }
 
 }
