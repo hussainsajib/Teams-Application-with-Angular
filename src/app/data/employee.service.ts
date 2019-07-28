@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from './employee';
+import { EmployeeRaw } from './employee-raw';
 
 @Injectable({
   providedIn: 'root'
@@ -13,4 +14,10 @@ export class EmployeeService {
   getEmployees(): Observable<Employee []>{
     return this.http.get<Employee[]>(this.employeeUrl);
   }
+
+  saveEmployee(employee: EmployeeRaw){
+    return this.http.put(`${this.employeeUrl}/employee/${employee._id}`, employee);
+  }
+
+
 }
