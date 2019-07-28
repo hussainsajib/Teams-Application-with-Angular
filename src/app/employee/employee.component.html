@@ -82,12 +82,12 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="HireDate">Hire Date:</label>
-              <input class="form-control" id="HireDate" name="HireDate" type="text" [value]="employee.HireDate" readonly />
+              <input class="form-control" id="HireDate" name="HireDate" type="text" value="{{employee.HireDate | date:'longDate'}}" readonly />
             </div>
           </div>
         </div>
         <hr />
-        <a href="/employees" class="btn btn-warning pull-left">Return to Employee List</a>
+        <a routerLink="/employees" class="btn btn-warning pull-left">Return to Employee List</a>
         <input type="submit" class="btn btn-primary pull-right" value="Update Employee" />
         <br />
         <br />
@@ -95,10 +95,10 @@
     </div>
     </div>
     <br />
-    <div class="alert alert-success">
+    <div class="alert alert-success" *ngIf="successMessage">
       <strong>Success!</strong> First Name Last Name's information was successfully saved.
     </div>
-    <div class="alert alert-danger">
+    <div class="alert alert-danger" *ngIf="failMessage">
       <strong>Error!</strong> First Name Last Name's information could not be saved.
     </div>
     </div>
