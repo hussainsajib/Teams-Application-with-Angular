@@ -36,4 +36,10 @@ export class PositionComponent implements OnInit {
     );
   }
 
+  ngOnDestroy(){
+    if ( this.paramSubscription ) { this.paramSubscription.unsubscribe(); }
+    if ( this.positionSubscription ) { this.positionSubscription.unsubscribe(); }
+    if ( this.savePositioinSubscription ) { this.savePositioinSubscription.unsubscribe(); }
+  }
+
 }
