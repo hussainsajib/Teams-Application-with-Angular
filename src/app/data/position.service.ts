@@ -20,7 +20,7 @@ export class PositionService {
     return this.http.put<any>(`${this.positionUrl}/position/${position._id}`, position);
   }
 
-  getPosition(id): Observable<Position[]>{
+  getPosition(id: string): Observable<Position[]>{
     return this.http.get<Position[]>(`${this.positionUrl}/position/${id}`);
   }
 }

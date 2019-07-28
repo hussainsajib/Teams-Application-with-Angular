@@ -12,7 +12,7 @@ import { PositionService } from '../data/position.service';
 export class PositionComponent implements OnInit {
   paramSubscription: any;
   positionSubscription: any;
-  savePositioinSubscription: any;
+  savePositionSubscription: any;
   position: Position;
   successMessage = false;
   failMessage = false;
@@ -25,7 +25,7 @@ export class PositionComponent implements OnInit {
   }
 
   onSubmit(){
-    this.savePositioinSubscription = this.p.savePosition(this.position).subscribe(
+    this.savePositionSubscription = this.p.savePosition(this.position).subscribe(
       success => {
         this.successMessage = true;
         setTimeout(() => this.successMessage = false, 2500 );

@@ -27,7 +27,7 @@ export class EmployeeComponent implements OnInit {
   ngOnInit() {
     this.paramSubscription = this.r.snapshot.paramMap.get('_id');
     this.employeeSubscription = this.m.getEmployee(this.paramSubscription).subscribe(employee => this.employee = employee[0]);
-    this.getPositionsSubcription = this.p.getPosition(this.paramSubscription).subscribe(positions => this.positions = positions);
+    this.getPositionsSubcription = this.p.getPositions().subscribe(positions => this.positions = positions);
   }
 
   onSubmit(){
