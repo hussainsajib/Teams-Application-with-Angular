@@ -27,7 +27,7 @@ export class EmployeesComponent implements OnInit {
   }
 
   routeEmployee(id: string){
-    this.router.navigate(['/', `employee/${id}`]);
+    this.router.navigate([`/employee/${id}`]);
   }
 
 }
