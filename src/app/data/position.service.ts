@@ -12,11 +12,15 @@ export class PositionService {
   positionUrl = 'https://glacial-beyond-73904.herokuapp.com';
   constructor(private http: HttpClient) { }
 
-  getPosition(): Observable<Position[]> {
+  getPositions(): Observable<Position[]> {
     return this.http.get<Position[]>(`${this.positionUrl}/positions`);
   }
 
   savePosition(position: Position): Observable<any>{
     return this.http.put<any>(`${this.positionUrl}/position/${position._id}`, position);
+  }
+
+  getPosition(id): Observable<Position[]>{
+    return this.http.get<Position[]>(`${this.positionUrl}/position/${id}`);
   }
 }
