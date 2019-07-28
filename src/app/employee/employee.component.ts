@@ -39,4 +39,11 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(){
+    if ( this.paramSubscription) { this.paramSubscription.unsubscribe(); }
+    if ( this.employeeSubscription ) { this.employeeSubscription.unsubscribe(); }
+    if ( this.getPositionsSubcription ) { this.getPositionsSubcription.unsubscribe(); }
+    if ( this.saveEmployeeSubscription ) { this.saveEmployeeSubscription.unsubscribe(); }
+  }
+
 }
