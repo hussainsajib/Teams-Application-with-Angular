@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { EmployeeRaw } from '../data/employee-raw';
 import { Position } from '../data/position';
 import { EmployeeService } from '../data/employee.service';
@@ -30,7 +31,8 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSubmit(){
-    this.saveEmployeeSubscription = this.m.saveEmployee(this.employee).subscribe(success => {
+    this.saveEmployeeSubscription = this.m.saveEmployee(this.employee).subscribe(
+      success => {
       this.successMessage = true;
       setTimeout(() => this.successMessage = false, 2500);
     }, failure => {
