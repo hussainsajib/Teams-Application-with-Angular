@@ -8,16 +8,19 @@ import { EmployeeRaw } from './employee-raw';
   providedIn: 'root'
 })
 export class EmployeeService {
-  employeeUrl = 'https://glacial-beyond-73904.herokuapp.com/employees'
+  employeeUrl = 'https://glacial-beyond-73904.herokuapp.com'
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<Employee []>{
-    return this.http.get<Employee[]>(this.employeeUrl);
+    return this.http.get<Employee[]>(`${this.employeeUrl}/employees`);
   }
 
-  saveEmployee(employee: EmployeeRaw){
-    return this.http.put(`${this.employeeUrl}/employee/${employee._id}`, employee);
+  saveEmployee(employee: EmployeeRaw): Observable<any>{
+    return this.http.put<any>(`${this.employeeUrl}/employee/${employee._id}`, employee);
   }
 
+  getEmployee(id): Observable<EmployeeRaw[]>{
+    return this.http.get<EmployeeRaw[]>(`${this.employeeUrl}/employee-raw/${id}`);
+  }
 
 }
