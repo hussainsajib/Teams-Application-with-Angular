@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <form>
+        <form (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
@@ -24,7 +24,7 @@
             </div>
           </div>
           <hr />
-          <a href="/positions" class="btn btn-warning pull-left">Return to Position List</a>
+          <a routerLink="/positions" class="btn btn-warning pull-left">Return to Position List</a>
           <input type="submit" class="btn btn-primary pull-right" value="Update Position" />
           <br />
           <br />
@@ -32,10 +32,10 @@
       </div>
     </div>
   <br />
-  <div class="alert alert-success">
+  <div class="alert alert-success" *ngIf="successMessage">
     <strong>Success!</strong> Position: "Position Name" was successfully saved.
   </div>
-  <div class="alert alert-danger">
+  <div class="alert alert-danger" *ngIf="failMessage">
     <strong>Error!</strong> Position: "Position Name" could not be saved.
   </div>
   </div>
