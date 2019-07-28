@@ -1,22 +1,22 @@
 <div class="center">
-  <h2>Employee: First Name Last Name</h2>
+  <h2>Employee: {{ employee.FirstName }} {{ employee.LastName }}</h2>
   <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non odio sed eros tristique bibendum.</p>
 </div>
 <div class="container">
 <div class="row">
 <div class="col-md-12">
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
           <label for="FirstName">First Name:</label>
-          <input class="form-control" id="FirstName" type="text"  name="FirstName" />
+          <input class="form-control" id="FirstName" type="text"  name="FirstName" [(ngModel)]="employee.FirstName" />
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="LastName">Last Name:</label>
-          <input class="form-control" id="LastName" type="text" name="LastName" />
+          <input class="form-control" id="LastName" type="text" name="LastName" [(ngModel)]="employee.LastName" />
         </div>
       </div>
     </div>
@@ -24,10 +24,8 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="Position">Position:</label>
-          <select class="form-control" id="Position"  name="Position">
-            <option>Position One</option>
-            <option>Position Two</option>
-            <option>Position Three</option>
+          <select class="form-control" id="Position" name="Position" [(ngModel)]="employee.Position">
+            <option *ngFor = "let position of positions" [value]="position._id"> position.PositionName </option>
           </select>
         </div>
       </div>
@@ -36,7 +34,7 @@
           <label for="SalaryBonus">Salary Bonus</label>
           <div class="input-group">
             <span class="input-group-addon">$</span>
-            <input class="form-control" id="SalaryBonus" type="text" name="SalaryBonus" />
+            <input class="form-control" id="SalaryBonus" type="text" name="SalaryBonus" [(ngModel)]="employee.SalaryBonus" />
           </div>
         </div>
       </div>
@@ -45,25 +43,25 @@
       <div class="col-md-3">
         <div class="form-group">
           <label for="AddressStreet">Address (Street):</label>
-          <input class="form-control" id="AddressStreet" type="text" name="AddressStreet" />
+          <input class="form-control" id="AddressStreet" type="text" name="AddressStreet" [(ngModel)]="employee.AddressStreet" />
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <label for="AddressCity">Address (City):</label>
-          <input class="form-control" id="AddressCity" type="text" name="AddressCity" />
+          <input class="form-control" id="AddressCity" type="text" name="AddressCity" [(ngModel)]="employee.AddressCity" />
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <label for="AddressState">Address (State):</label>
-          <input class="form-control" id="AddressState" type="text" name="AddressState" />
+          <input class="form-control" id="AddressState" type="text" name="AddressState" [(ngModel)]="employee.AddressState" />
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <label for="AddressZip">Address (Zip Code):</label>
-          <input class="form-control" id="AddressZip" type="text" name="AddressZip" />
+          <input class="form-control" id="AddressZip" type="text" name="AddressZip" [(ngModel)]="employee.AddressZip" />
         </div>
       </div>
     </div>
@@ -71,19 +69,19 @@
       <div class="col-md-3">
         <div class="form-group">
           <label for="PhoneNum">Phone Number:</label>
-          <input class="form-control" id="PhoneNum" type="text" name="PhoneNum" />
+          <input class="form-control" id="PhoneNum" type="text" name="PhoneNum" [(ngModel)]="employee.PhoneNum" />
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <label for="Extension">Extension:</label>
-          <input class="form-control" id="Extension" type="text" name="Extension" />
+          <input class="form-control" id="Extension" type="text" name="Extension" [(ngModel)]="employee.Extension" />
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="HireDate">Hire Date:</label>
-          <input class="form-control" id="HireDate" name="HireDate" type="text" value="HireDate" readonly />
+          <input class="form-control" id="HireDate" name="HireDate" type="text" [value]="employee.HireDate" readonly />
         </div>
       </div>
     </div>
