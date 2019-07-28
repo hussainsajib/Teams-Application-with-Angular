@@ -6,25 +6,25 @@
     <div class="container">
     <div class="row">
     <div class="col-md-12">
-      <form (ngSubmit)="onSubmit()">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="FirstName">First Name:</label>
-              <input class="form-control" id="FirstName" type="text"  name="FirstName" [(ngModel)]="employee.FirstName" />
+              <label for="FirstName" class="control-label">First Name:</label>
+              <input class="form-control" id="FirstName" type="text"  name="FirstName" [(ngModel)]="employee.FirstName" #FirstName="ngModel" />
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="LastName">Last Name:</label>
-              <input class="form-control" id="LastName" type="text" name="LastName" [(ngModel)]="employee.LastName" />
+              <label for="LastName" class="control-label">Last Name:</label>
+              <input class="form-control" id="LastName" type="text" name="LastName" [(ngModel)]="employee.LastName" #LastName="ngModel"/>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="Position">Position:</label>
+              <label for="Position" class="control-label">Position:</label>
               <select class="form-control" id="Position" name="Position" [(ngModel)]="employee.Position">
                 <option *ngFor = "let position of positions" [value]="position._id">{{ position.PositionName }}</option>
               </select>
@@ -32,10 +32,10 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="SalaryBonus">Salary Bonus</label>
+              <label for="SalaryBonus" class="control-label">Salary Bonus</label>
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input class="form-control" id="SalaryBonus" type="text" name="SalaryBonus" [(ngModel)]="employee.SalaryBonus" />
+                <input class="form-control" id="SalaryBonus" type="text" name="SalaryBonus" [(ngModel)]="employee.SalaryBonus" #SalaryBonus="ngModel" />
               </div>
             </div>
           </div>
@@ -43,40 +43,40 @@
         <div class="row">
           <div class="col-md-3">
             <div class="form-group">
-              <label for="AddressStreet">Address (Street):</label>
-              <input class="form-control" id="AddressStreet" type="text" name="AddressStreet" [(ngModel)]="employee.AddressStreet" />
+              <label for="AddressStreet" class="control-label">Address (Street):</label>
+              <input class="form-control" id="AddressStreet" type="text" name="AddressStreet" [(ngModel)]="employee.AddressStreet" #AddressStreet="ngModel" />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="AddressCity">Address (City):</label>
-              <input class="form-control" id="AddressCity" type="text" name="AddressCity" [(ngModel)]="employee.AddressCity" />
+              <label for="AddressCity" class="control-label">Address (City):</label>
+              <input class="form-control" id="AddressCity" type="text" name="AddressCity" [(ngModel)]="employee.AddressCity" #AddressCity="ngModel" />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="AddressState">Address (State):</label>
-              <input class="form-control" id="AddressState" type="text" name="AddressState" [(ngModel)]="employee.AddressState" />
+              <label for="AddressState" class="control-label">Address (State):</label>
+              <input class="form-control" id="AddressState" type="text" name="AddressState" [(ngModel)]="employee.AddressState" #AddressState="ngModel" />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="AddressZip">Address (Zip Code):</label>
-              <input class="form-control" id="AddressZip" type="text" name="AddressZip" [(ngModel)]="employee.AddressZip" />
+              <label for="AddressZip" class="control-label">Address (Zip Code):</label>
+              <input class="form-control" id="AddressZip" type="text" name="AddressZip" [(ngModel)]="employee.AddressZip" #AddressZip="ngModel" />
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-3">
             <div class="form-group">
-              <label for="PhoneNum">Phone Number:</label>
-              <input class="form-control" id="PhoneNum" type="text" name="PhoneNum" [(ngModel)]="employee.PhoneNum" />
+              <label for="PhoneNum" class="control-label">Phone Number:</label>
+              <input class="form-control" id="PhoneNum" type="text" name="PhoneNum" [(ngModel)]="employee.PhoneNum" #PhoneNum="ngModel" />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="Extension">Extension:</label>
-              <input class="form-control" id="Extension" type="text" name="Extension" [(ngModel)]="employee.Extension" />
+              <label for="Extension" class="control-label">Extension:</label>
+              <input class="form-control" id="Extension" type="text" name="Extension" [(ngModel)]="employee.Extension" #Extension="ngModel" />
             </div>
           </div>
           <div class="col-md-6">
