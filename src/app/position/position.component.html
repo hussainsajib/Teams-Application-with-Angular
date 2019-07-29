@@ -9,24 +9,26 @@
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
+              <div class="form-group" [class.has-error]="PositionName.invalid">
                 <label for="PositionName" class="control-label">Position Name:</label>
-                <input class="form-control" id="PositionName" type="text" name="PositionName" [(ngModel)]="position.PositionName" #PositionName="ngModel" />
+                <input class="form-control" id="PositionName" type="text" name="PositionName" [(ngModel)]="position.PositionName" #PositionName="ngModel" required />
+                <span class="help-block" *ngIf="PositionName.invalid">Position Name is Required</span>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
+              <div class="form-group" [class.has-error]="PositionDescription.invalid">
                 <label for="PositionDescription" class="control-label">Description:</label>
                 <textarea class="form-control" id="PositionDescription" rows="5"
-                name="PositionDescription" [(ngModel)]="position.PositionDescription" #PositionDescription="ngModel" ></textarea>
+                name="PositionDescription" [(ngModel)]="position.PositionDescription" #PositionDescription="ngModel" required ></textarea>
+                <span class="help-block" *ngIf="PositionDescription.invalid">Position Description is required</span>
               </div>
             </div>
           </div>
           <hr />
           <a routerLink="/positions" class="btn btn-warning pull-left">Return to Position List</a>
-          <input type="submit" class="btn btn-primary pull-right" value="Update Position" />
+          <input type="submit" class="btn btn-primary pull-right" value="Update Position" [disabled]="f.invalid" />
           <br />
           <br />
         </form>
