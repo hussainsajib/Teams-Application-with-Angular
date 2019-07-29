@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Employee } from '../data/employee';
-import { EmployeeService } from '../data/employee.service'
+import { EmployeeService } from '../data/employee.service';
+import { Position } from '../data/position';
 
 @Component({
   selector: 'app-employees',
@@ -32,6 +33,12 @@ export class EmployeesComponent implements OnInit {
 
   routeEmployee(id: string){
     this.router.navigate([`/employee/${id}`]);
+  }
+
+  onEmployeeSearchKeyUP(event: any){
+    this.filteredEmployees =  this.employees.filter(employee => employee.FirstName.toLowerCase().includes(event.target.value.toLowerCase()))
+                              .concat(this.employees.filter(employee => employee.LastName.toLowerCase().includes(event.target.value.toLowerCase())))
+                              .concat(this.employees.filter(employee => employee.Position.PositionName.toLowerCase().includes(event.target.value.toLowerCase())));
   }
 
 }
