@@ -13,6 +13,7 @@ export class EmployeesComponent implements OnInit {
   employees: Employee[];
   getEmployeesSub: any;
   loadingError = false;
+  filteredEmployees: Employee[];
 
   constructor(private m: EmployeeService, private router: Router) { }
 
@@ -20,7 +21,10 @@ export class EmployeesComponent implements OnInit {
     this.getEmployees();
   }
   getEmployees(){
-    this.getEmployeesSub = this.m.getEmployees().subscribe(employees=>this.employees = employees, error=>this.loadingError = true);
+    this.getEmployeesSub = this.m.getEmployees().subscribe(employees => {
+      this.employees = employees;
+      this.filteredEmployees = employees;
+    }, error => this.loadingError = true);
   }
   ngOnDestroy(){
     this.getEmployeesSub.unsubscribe();
