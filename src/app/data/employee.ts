@@ -1,3 +1,5 @@
+import { Position } from './position';
+
 export class Employee {
   _id: string;
   FirstName: string;

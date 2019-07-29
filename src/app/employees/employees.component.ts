@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { Employee } from '../data/employee';
 import { EmployeeService } from '../data/employee.service';
-import { Position } from '../data/position';
 
 @Component({
   selector: 'app-employees',
