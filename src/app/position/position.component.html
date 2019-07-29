@@ -6,20 +6,21 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <form (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label for="PositionName">Position Name:</label>
-                <input class="form-control" id="PositionName" type="text" name="PositionName" [(ngModel)]="position.PositionName" />
+                <label for="PositionName" class="control-label">Position Name:</label>
+                <input class="form-control" id="PositionName" type="text" name="PositionName" [(ngModel)]="position.PositionName" #PositionName="ngModel" />
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label for="PositionDescription">Description:</label>
-                <textarea class="form-control" id="PositionDescription" rows="5" name="PositionDescription" [(ngModel)]="position.PositionDescription" ></textarea>
+                <label for="PositionDescription" class="control-label">Description:</label>
+                <textarea class="form-control" id="PositionDescription" rows="5"
+                name="PositionDescription" [(ngModel)]="position.PositionDescription" #PositionDescription="ngModel" ></textarea>
               </div>
             </div>
           </div>
